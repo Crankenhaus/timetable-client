@@ -1,0 +1,17 @@
+machine:
+  node:
+    version: 6.9.5
+dependencies:
+  pre:
+    - npm install -g @angular/cli@latest
+  override:
+    - npm install
+  post:
+    - ng serve:
+        background: true
+    - sleep 10
+test:
+  override:
+    - ng lint
+    - ng test --watch=false 
+    - ng e2e
